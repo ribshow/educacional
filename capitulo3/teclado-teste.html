@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas_teclado1" width="500" height="500"></canvas>
+    <script>
+        // Interação com o usuário vai aqui
+        // Referência canvas e contexto
+        var canvas = document.getElementById('canvas_teclado1');
+        var context = canvas.getContext('2d');
+
+        // Posição inicial do personagem
+        var posicao = 0;
+        desenharPersonagem();
+
+        document.addEventListener('keydown', function(evento){
+            if (evento.keyCode == 37){
+                // Seta para esquerda
+                posicao -= 10;
+                desenharPersonagem();
+            }
+            else if (evento.keyCode == 39) {
+                // Seta para direita
+                posicao += 10;
+                desenharPersonagem();
+            }
+        })
+
+        // Um personagem não muito simpático mas
+        function desenharPersonagem() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.fillRect(posicao, 100, 20, 50);
+        }
+    </script>
+
+</body>
+</html>

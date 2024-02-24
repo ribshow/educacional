@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="teclado.js"></script>
+</head>
+<body>
+    <canvas id="canvas_teclado2" widht="500" height="500"></canvas>
+    <script>
+        // Aqui virá um controle de teclado mais apurado
+        // Referenciando canvas e context
+        var canvas = document.getElementById('canvas_teclado2');
+        var context = canvas.getContext('2d');
+
+        // Posição inicial e desenho do personagem
+        var posicao = 0;
+        desenharPersonagem();
+
+        // Criando o controlador do teclado
+        var teclado = new Teclado(document);
+
+        // Loop de animação
+        requestAnimationFrame(animar);
+
+        function animar() {
+            if (teclado.pressionada(SETA_ESQUERDA))
+               posicao -= 10;
+            else if (teclado.pressionada(SETA_DIREITA))
+               posicao += 10;
+
+            desenharPersonagem();
+            requestAnimationFrame(animar);
+        }
+
+        // Nosso herói continua esbanjando charme
+        function desenharPersonagem() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.fillRect(posicao, 100, 20, 50);
+        }
+    </script>
+</body>
+</html>

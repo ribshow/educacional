@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="meu_canvas" width="200" height="200"></canvas>
+    <script>
+        // aqui obteremos o contexto gráfico e trabalharemos com o canvas
+        //referenciando o canvas 
+        var canvas = document.getElementById('meu_canvas');
+
+        //obtendo o contexto gráfico 
+        var context = canvas.getContext('2d');
+
+        //Desenhar um retângulo
+        context.fillRect(50,50,100,100);
+    </script>
+    
+</body>
+</html>

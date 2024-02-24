@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="animacao.js"></script>
+    <script src="bola.js"></script>
+</head>
+<body>
+    <canvas id="canvas_animacao" width="500" heigth="500"></canvas>
+    <script>
+        // Aqui vai a iniciliazação do aplicativo
+        // Referenciando o canvas
+        var canvas = document.getElementById('canvas_animacao');
+        var context = canvas.getContext('2d');
+
+        // Criando algumas sprites
+        var b1 = new Bola(context);
+        b1.x = 200;
+        b1.y = 100;
+        b1.velocidadeX = 20;
+        b1.velocidadeY = -10;
+        b1.cor = 'red';
+        b1.raio = 20;
+
+        var b2 = new Bola(context);
+        b2.x = 200;
+        b2.y = 100;
+        b2.velocidadeX = -10;
+        b2.velocidadeY = 20;
+        b2.cor = 'blue';
+        b2.raio = 30;
+
+        var b3 = new Bola(context);
+        b3.x = 200;
+        b3.y = 100;
+        b3.velocidadeX = 15;
+        b3.velocidadeY = -15;
+        b3.cor = 'green';
+        b3.raio = 40;
+
+        var b4 = new Bola(context);
+        b4.x = 200;
+        b4.y = 100;
+        b4.velocidadeX = 12;
+        b4.velocidadeY = -6;
+        b4.cor = 'yellow';
+        b4.raio = 20;
+
+        // Criando o loop de animação
+        var animacao = new Animacao(context);
+        animacao.novoSprite(b1);
+        animacao.novoSprite(b2);
+        animacao.novoSprite(b3);
+        animacao.novoSprite(b4);
+
+        // Ligar a animação
+        animacao.ligar();
+    </script>
+</body>
+</html>
